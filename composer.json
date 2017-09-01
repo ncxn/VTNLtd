@@ -1,0 +1,5 @@
+{
+    "require": {
+        "crada/phalcon-user-plugin": "~3.0"
+    }
+}
