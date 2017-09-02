@@ -39,14 +39,3 @@
     {{ link_to("user/forgotPassword", "Forgot my password") }}
  </form>
 </div>
-<!-- Success notify -->
-{% set output = flash.output() %}
-{% if output|length %}
-    <script type="text/javascript">
-         $.Notify({
-            caption: 'Notify title',
-            content: '{{ output }}',
-            type: 'success'
-        });
-     </script>
- {% endif %}

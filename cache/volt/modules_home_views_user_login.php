@@ -39,14 +39,3 @@
     <?= $this->tag->linkTo(['user/forgotPassword', 'Forgot my password']) ?>
  </form>
 </div>
-<!-- Success notify -->
-<?php $output = $this->flash->output(); ?>
-<?php if ($this->length($output)) { ?>
-    <script type="text/javascript">
-         $.Notify({
-            caption: 'Notify title',
-            content: '<?= $output ?>',
-            type: 'success'
-        });
-     </script>
- <?php } ?>

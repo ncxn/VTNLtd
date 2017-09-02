@@ -60,8 +60,16 @@ class UserController extends ControllerBase
                 }
             }
         } catch (AuthException $e) {
-            $this->flash->error($e->getMessage());
-        }
+            //$this->flash->error($e->getMessage());
+            $m=$e->getMessage();
+                echo "<script type='text/javascript'>";
+                echo "$.Notify({
+                                caption: 'Error note',
+                                content: '$m',
+                                type: 'warning',
+                                icon:\"<span class='mif-warning'></span>\"});";
+                echo "</script>";
+            }
         $this->view->form = $form;
     }
 
