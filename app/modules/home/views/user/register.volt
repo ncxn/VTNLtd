@@ -1,60 +1,51 @@
 {{ content() }}
 
 <div align="center">
-
-	{{ form('class': 'form-search') }}
-
-		<div align="left">
-			<h2>Sign Up</h2>
-		</div>
-
-		<table class="signup">
-			<tr>
-				<td align="right">{{ form.label('name') }}</td>
-				<td>
-					{{ form.render('name') }}
-					{{ form.messages('name') }}
-				</td>
-			</tr>
-			<tr>
-				<td align="right">{{ form.label('email') }}</td>
-				<td>
-					{{ form.render('email') }}
-					{{ form.messages('email') }}
-				</td>
-			</tr>
-			<tr>
-				<td align="right">{{ form.label('password') }}</td>
-				<td>
-					{{ form.render('password') }}
-					{{ form.messages('password') }}
-				</td>
-			</tr>
-			<tr>
-				<td align="right">{{ form.label('confirmPassword') }}</td>
-				<td>
-					{{ form.render('confirmPassword') }}
-					{{ form.messages('confirmPassword') }}
-				</td>
-			</tr>
-			<tr>
-				<td align="right"></td>
-				<td>
-					{{ form.render('terms') }} {{ form.label('terms') }}
-					{{ form.messages('terms') }}
-				</td>
-			</tr>
-			<tr>
-				<td align="right"></td>
-				<td>{{ form.render('Register') }}</td>
-			</tr>
-		</table>
-
-		{{ form.render('csrf', ['value': security.getToken()]) }}
-		{{ form.messages('csrf') }}
-
-		<hr>
-
+    <h1 class="text-light">Sign up</h1>
+    <hr class="thin">
+	{{ form() }}
+           <div class="input-control modern text iconic" data-role="input">
+               {{ form.render('name') }}
+               <span class="label">Your name</span>
+               <span class="informer">Please enter your name</span>
+               <span class="placeholder" style="display: block;">Input name</span>
+               <span class="icon mif-user"></span>
+           </div>
+           <div class="input-control modern text iconic" data-role="input">
+               {{ form.render('email') }}
+               <span class="label">Your email</span>
+               <span class="informer">Please enter your email</span>
+               <span class="placeholder" style="display: block;">Input email</span>
+               <span class="icon mif-envelop"></span>
+           </div>
+           <br />            
+           <div class="input-control modern password iconic" data-role="input">
+                {{ form.render('password') }}
+                <span class="label">You password</span>
+                <span class="informer">Please enter you password</span>
+                <span class="placeholder">Input password</span>
+                <span class="icon mif-lock"></span>
+                <button class="button helper-button reveal"><span class="mif-looks"></span></button>
+            </div>
+           <div class="input-control modern password iconic" data-role="input">
+                {{ form.render('confirmPassword') }}
+                <span class="label">You password</span>
+                <span class="informer">Please enter you password</span>
+                <span class="placeholder">Input password</span>
+                <span class="icon mif-lock"></span>
+                <button class="button helper-button reveal"><span class="mif-looks"></span></button>
+            </div>	
+            <br />            	
+            <label class="input-control checkbox">
+                {{ form.render('terms') }}
+                <span class="check"></span>
+                <span class="caption">{{ form.label('terms') }}</span>
+            </label>
+		
+			<button type="submit" class="image-button icon-right" value="Enter">
+            Sign up<span class="icon mif-enter"></span>
+            </button>
+		          {{ form.render('csrf', ['value': security.getToken()]) }}
 	</form>
 
 </div>

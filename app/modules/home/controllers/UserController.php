@@ -21,7 +21,14 @@ class UserController extends ControllerBase
 {
     public function indexAction()
     {
-        Echo "OK";
+        //$auth = $this->getAuth($dispatcher);
+        if ($this->auth->isUserSignedIn()) {   
+                return $this->response->redirect('/user/profile');
+            }else
+            {
+                return $this->response->redirect('/user/login');
+            }
+            
     }
 
     /**
@@ -42,13 +49,7 @@ class UserController extends ControllerBase
             } else {
                 if ($form->isValid($this->request->getPost()) == false) {
                     foreach ($form->getMessages() as $message) {
-                        echo "<script type='text/javascript'>";
-                        echo "$.Notify({
-                                caption: 'Error note',
-                                content: '$message',
-                                type: 'warning',
-                                icon:\"<span class='mif-warning'></span>\"});";
-                        echo "</script>";
+                        $this->metroFlash->error($message);
                     }
                 } else {
                     $this->auth->check([
@@ -59,17 +60,9 @@ class UserController extends ControllerBase
                     return $this->response->redirect('user/profile');
                 }
             }
-        } catch (AuthException $e) {
-            //$this->flash->error($e->getMessage());
-            $m=$e->getMessage();
-                echo "<script type='text/javascript'>";
-                echo "$.Notify({
-                                caption: 'Error note',
-                                content: '$m',
-                                type: 'warning',
-                                icon:\"<span class='mif-warning'></span>\"});";
-                echo "</script>";
-            }
+           } catch (AuthException $e) {
+            $this->metroFlash->error($e->getMessage());
+        }
         $this->view->form = $form;
     }
 
@@ -132,8 +125,13 @@ class UserController extends ControllerBase
      */
     public function signoutAction()
     {
+        if ($this->auth->isUserSignedIn()) {   
         $this->auth->remove();
-        return $this->response->redirect('/', true);
+        return $this->response->redirect('', true);                
+            }else
+            {
+                return $this->metroFlash->error("You not logged in this page!");
+            }
     }
 
     /**
@@ -142,11 +140,11 @@ class UserController extends ControllerBase
     public function registerAction()
     {
         $form = new RegisterForm();
-
+  
         if ($this->request->isPost()) {
             if (!$form->isValid($this->request->getPost())) {
                 foreach($form->getMessages() as $message) {
-                    $this->flash->error($message->getMessage());
+                    $this->metroFlash->error($message->getMessage());
                 }
             } else {
                 $user = new User();
@@ -161,15 +159,15 @@ class UserController extends ControllerBase
 
                 if (!$user->save()) {
                     foreach($user->getMessages() as $message) {
-                        $this->flash->error($message->getMessage());
+                        $this->metroFlash->error($message->getMessage());
                     }
                 } else {
                     $this->view->disable();
                     return $this->response->redirect($this->_activeLanguage.'/user/register');
                 }
             }
-        }
-
+          } 
+  
         $this->view->form = $form;
     }
 
@@ -365,6 +363,6 @@ class UserController extends ControllerBase
 
     public function profileAction()
     {
-
+        echo " Xây dựng trang cá nhân";
     }
 }

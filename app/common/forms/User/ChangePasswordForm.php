@@ -1,6 +1,6 @@
 <?php
 
-namespace Vtnltd\Forms\User;
+namespace Phalcon\UserPlugin\Forms\User;
 
 use Phalcon\Forms\Form;
 use Phalcon\Forms\Element\Password;

@@ -6,7 +6,7 @@ use Phalcon\Mvc\Model;
 use Phalcon\Validation;
 use Phalcon\Validation\Validator\Uniqueness;
 
-class User extends Model
+class User extends \Phalcon\Mvc\Model
 {
     const STATUS_INACTIVE = 0;
 
@@ -947,11 +947,9 @@ class User extends Model
             $this->must_change_password = 1;
             $this->password = $this->getDI()->getSecurity()->hash($tempPassword);
         }
-
         if (empty($this->status)) {
             $this->status == static::STATUS_INACTIVE;
         }
-
         $this->created_at = date('Y-m-d H:i:s');
         // The account must be confirmed via e-mail
         // Only require this if emails are turned on in the config, otherwise account is automatically active
@@ -960,16 +958,10 @@ class User extends Model
         } else {
             $this->active = 1;
         }
-
         // The account is not suspended by default
         $this->suspended = 0;
         // The account is not banned by default
         $this->banned = 0;
-    }
-
-    public function beforeValidationOnUpdate()
-    {
-        $this->updated_at = date('Y-m-d H:i:s');
     }
 
     /**

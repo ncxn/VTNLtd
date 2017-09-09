@@ -14,13 +14,13 @@
         <link rel="stylesheet" href="http://cdn.metroui.org.ua/css/metro-rtl.min.css">
         <link rel="stylesheet" href="http://cdn.metroui.org.ua/css/metro-font-cdn.css">
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
-                <script src="http://cdn.metroui.org.ua/js/metro.min.js"></script>
+        <script src="http://cdn.metroui.org.ua/js/metro.min.js"></script>
     </head>
     <body>
         <div class="container">
             {{ content() }}
         </div>
-        </body>
+    </body>
 </html>

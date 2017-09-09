@@ -1,6 +1,6 @@
 <?php
 
-namespace Vtnltd\Lib\Mail;
+namespace Vtnltd\Mail;
 
 use Phalcon\Mvc\User\Component;
 use Phalcon\Mvc\View;

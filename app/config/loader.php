@@ -11,7 +11,7 @@ $loader->registerNamespaces([
     'Vtnltd\Model'      => APP_PATH . '/common/models/',
     'Vtnltd\Lib'        => APP_PATH . '/common/library/',
     'Vtnltd\Form'       => APP_PATH . '/common/forms/',
-    'Vtnltd\Plugin'       => APP_PATH . '/common/library/plugin',
+    'Vtnltd\Plugin'     => APP_PATH . '/common/plugin/',
 ]);
 
 /**

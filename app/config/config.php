@@ -31,6 +31,7 @@ return new \Phalcon\Config([
 
     'printNewLine' => true,
     
+    'useMail'=> true,
     
     // phalcon-user-plugin
     'pup' => [
@@ -71,18 +72,5 @@ return new \Phalcon\Config([
             'developer_key' => 'YOUR_DEVELOPER_KEY',
             'redirect_uri' => 'YOUR_REDIRECT_URI'
         ]
-    ],
-    'mail' => [
-        'fromName' => 'Vokuro',
-        'fromEmail' => 'phosphorum@phalconphp.com',
-        'smtp' => [
-            'server' => 'smtp.gmail.com',
-            'port' => 587,
-            'security' => 'tls',
-            'username' => '',
-            'password' => ''
-        ]
-    ],
-    // Set to false to disable sending emails (for use in test environment)
-    'useMail' => true
+    ]
 ]);

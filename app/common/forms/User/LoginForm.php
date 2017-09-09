@@ -13,17 +13,13 @@ use Phalcon\Validation\Validator\Email;
 use Phalcon\Validation\Validator\Identical;
 
 /**
- * Phalcon\UserPlugin\Forms\User\LoginForm.
+ * Vtntd\Forms\User\LoginForm.
  */
 class LoginForm extends Form
 {
     public function initialize()
     {
-        //Email
-        $email = new Text('email', array(
-            //'placeholder' => 'Email',
-            'autocomplete' => "off",
-        ));
+        $email = new Text('email', array());
 
         $email->addValidators(array(
             new PresenceOf(array(
@@ -36,10 +32,8 @@ class LoginForm extends Form
 
         $this->add($email);
 
-        //Password
-        $password = new Password('password', array(
-            //'placeholder' => 'Password',
-        ));
+    
+        $password = new Password('password', array());
 
         $password->addValidator(
             new PresenceOf(array(
@@ -68,7 +62,6 @@ class LoginForm extends Form
         $this->add($csrf);
 
         $this->add(new Submit('go', array(
-            //'class' => 'btn btn-success',
         )));
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Vtnltd\Lib\Mail;
+namespace Vtnltd\Mail;
 
 /**
  * Phalcon\UserPlugin\Mail\Exception.

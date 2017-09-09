@@ -63,7 +63,7 @@ class RegisterForm extends Form
                 'messageMinimum' => 'Password is too short. Minimum 8 characters',
             )),
             new Confirmation(array(
-                'message' => 'Password does not match confirmation',
+                'message' => 'Password does not match',
                 'with' => 'confirmPassword',
             )),
         ));
@@ -121,7 +121,7 @@ class RegisterForm extends Form
     {
         if ($this->hasMessagesFor($name)) {
             foreach ($this->getMessagesFor($name) as $message) {
-                $this->flash->error($message);
+                $this->metroFlash->error($message);
             }
         }
     }

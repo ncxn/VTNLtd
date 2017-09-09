@@ -6,8 +6,8 @@ use Phalcon\Mvc\Url as UrlResolver;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
-use Phalcon\Flash\Direct as Flash;
-
+//use Phalcon\Flash\Direct as Flash;
+use Vtnltd\Plugin\MetroFlash as Flash;
 /**
  * Registering a router
  */
@@ -44,15 +44,11 @@ $di->setShared('session', function () {
 /**
  * Register the session flash service with the Twitter Bootstrap classes
  */
-$di->set('flash', function () {
-    return new Flash([
-        'error'   => 'alert alert-danger',
-        'success' => 'alert alert-success',
-        'notice'  => 'alert alert-info',
-        'warning' => 'alert alert-warning'
-    ]);
+ $di->setShared('metroFlash', function() {
+    $metroFlash = new Flash();
+ 
+    return $metroFlash;
 });
-
 /**
 * Set the default namespace for dispatcher
 */
@@ -61,7 +57,7 @@ $di->setShared(
     function() use ($di) {
         $eventsManager = $di->getShared('eventsManager');
 
-        $security = new \Vtnltd\Lib\Plugin\Security($di);
+        $security = new \Vtnltd\Plugin\Security($di);
         $eventsManager->attach('dispatch', $security);
 
         $dispatcher = new Dispatcher();
