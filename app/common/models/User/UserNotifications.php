@@ -3,7 +3,7 @@
 namespace Vtnltd\Model\User;
 
 /**
- * Phalcon\UserPlugin\Models\User\UserNotifications.
+ * Vtnltd\Models\User\UserNotifications.
  */
 class UserNotifications extends \Phalcon\Mvc\Model
 {

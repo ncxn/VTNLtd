@@ -10,7 +10,7 @@ use Vtnltd\Model\User\User;
 use Vtnltd\Model\User\UserGroups;
 
 /**
- * Phalcon\UserPlugin\Acl\Acl.
+ * Vtnltd\Acl\Acl.
  */
 class Acl extends Component
 {

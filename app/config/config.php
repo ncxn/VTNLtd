@@ -25,6 +25,8 @@ return new \Phalcon\Config([
         'formsDir'       => APP_PATH . '/common/forms/',
         'migrationsDir'  => APP_PATH . '/migrations/',
         'cacheDir'       => BASE_PATH . '/cache/',
+        'upload_dir'     => BASE_PATH . '/upload/',
+        'publicUrl'      => 'http://localhost/vtnltd',
         'baseUri'        => preg_replace('/public([\/\\\\])index.php$/', '', $_SERVER["PHP_SELF"]),
         'cryptSalt'      => 'eEAfR|_&G&f,+vU]:jFr!!A&+71w1Ms9~8_4L!<@[N@DyaIP_2My|:+.u>/6m,$D',
     ],
@@ -32,7 +34,17 @@ return new \Phalcon\Config([
     'printNewLine' => true,
     
     'useMail'=> true,
-    
+    'mail' => [
+        'fromName' => 'VTNCo.,Ltd',
+        'fromEmail' => 'info@vtnltd.com',
+        'smtp' => [
+            'server' => 'smtp.gmail.com',
+            'port' => 587,
+            'security' => 'tls',
+            'username' => 'ncxn.pp@gmail.com',
+            'password' => 'mmttmhh30081982'
+        ]
+    ],
     // phalcon-user-plugin
     'pup' => [
         'redirect' => [

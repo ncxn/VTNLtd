@@ -6,7 +6,6 @@ use Phalcon\Mvc\Url as UrlResolver;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
-//use Phalcon\Flash\Direct as Flash;
 use Vtnltd\Plugin\MetroFlash as Flash;
 /**
  * Registering a router

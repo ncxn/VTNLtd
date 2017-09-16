@@ -1,12 +1,12 @@
 <?php
 
-namespace Vtnltd\Connectors;
+namespace Vtnltd\Lib\Connectors;
 
 use Google_Client;
 use Google_Service_Oauth2 as Oauth2Service;
 
 /**
- * Phalcon\UserPlugin\Connectors\GoogleConnector.
+ * Vtnltd\Connectors\GoogleConnector.
  */
 class GoogleConnector
 {

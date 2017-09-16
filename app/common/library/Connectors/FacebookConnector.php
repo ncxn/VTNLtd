@@ -1,9 +1,9 @@
 <?php
 
-namespace Vtnltd\Connectors;
+namespace Vtnltd\Lib\Connectors;
 
 /**
- * Phalcon\UserPlugin\Connectors\FacebookConnector.
+ * Vtnltd\Connectors\FacebookConnector.
  */
 class FacebookConnector
 {

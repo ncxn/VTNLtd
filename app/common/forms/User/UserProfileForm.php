@@ -1,6 +1,6 @@
 <?php
 
-namespace Phalcon\UserPlugin\Forms\User;
+namespace Vtnltd\Forms\User;
 
 use Phalcon\Forms\Form;
 use Phalcon\Forms\Element\Text;
@@ -10,7 +10,7 @@ use Phalcon\Forms\Element\Select;
 use Phalcon\Validation\Validator\Identical;
 
 /**
- * Phalcon\UserPlugin\Forms\User\UserProfileForm.
+ * Vtnltd\Forms\User\UserProfileForm.
  */
 class UserProfileForm extends Form
 {
@@ -39,7 +39,7 @@ class UserProfileForm extends Form
                 'message' => 'CSRF validation failed',
             ))
         );
-
+        $csrf->clear();
         $this->add($csrf);
 
         $this->add(new Submit('Save', array(

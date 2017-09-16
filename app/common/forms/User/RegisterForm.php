@@ -15,7 +15,7 @@ use Phalcon\Validation\Validator\StringLength;
 use Phalcon\Validation\Validator\Confirmation;
 
 /**
- * Phalcon\UserPlugin\Forms\User\RegisterForm.
+ * Vtnltd\Forms\User\RegisterForm.
  */
 class RegisterForm extends Form
 {

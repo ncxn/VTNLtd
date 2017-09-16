@@ -1,9 +1,9 @@
 <?php
 
-namespace Vtnltd\Connectors;
+namespace Vtnltd\Lib\Connectors;
 
 /**
- * Phalcon\UserPlugin\Connectors\LinkedInConnector.
+ * Vtnltd\Connectors\LinkedInConnector.
  *
  * Original class from https://github.com/redinkdesign/PHP-LinkedIn-SDK
  */
@@ -135,7 +135,7 @@ class LinkedInConnector
      *
      * @throws \InvalidArgumentException
      *
-     * @return \Phalcon\UserPlugin\Connectors\LinkedInConnector
+     * @return \Vtnltd\Connectors\LinkedInConnector
      */
     public function setAccessToken($token)
     {
@@ -156,7 +156,7 @@ class LinkedInConnector
      *
      * @throws \InvalidArgumentException
      *
-     * @return \Phalcon\UserPlugin\Connectors\LinkedInConnector
+     * @return \Vtnltd\Connectors\LinkedInConnector
      */
     public function setState($state)
     {

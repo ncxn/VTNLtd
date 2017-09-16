@@ -3,7 +3,7 @@
 namespace Vtnltd\Model\User;
 
 /**
- * Phalcon\UserPlugin\Models\User\UserSuccessLogins.
+ * Vtnltd\Models\User\UserSuccessLogins.
  */
 class UserSuccessLogins extends \Phalcon\Mvc\Model
 {

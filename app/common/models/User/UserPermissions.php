@@ -3,7 +3,7 @@
 namespace Vtnltd\Model\User;
 
 /**
- * Phalcon\UserPlugin\Models\User\UserPermissions.
+ * Vtnltd\Models\User\UserPermissions.
  */
 class UserPermissions extends \Phalcon\Mvc\Model
 {

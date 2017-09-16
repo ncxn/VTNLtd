@@ -9,14 +9,14 @@ use Phalcon\Validation\Validator\PresenceOf;
 use Phalcon\Validation\Validator\Email;
 
 /**
- * Phalcon\UserPlugin\Forms\User\ForgotPasswordForm.
+ * Vtnltd\Forms\User\ForgotPasswordForm.
  */
 class ForgotPasswordForm extends Form
 {
     public function initialize()
     {
         $email = new Text('email', array(
-            'placeholder' => 'Email',
+            //'placeholder' => 'Email',
         ));
         $email->addValidators(array(
             new PresenceOf(array(

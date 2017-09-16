@@ -3,7 +3,7 @@
 namespace Vtnltd\Lib\Exception;
 
 /**
- * Phalcon\UserPlugin\Exception\UserPluginException.
+ * Vtnltd\Exception\UserPluginException.
  */
 class UserPluginException extends \Phalcon\Exception
 {

@@ -3,7 +3,7 @@
 namespace Vtnltd\Model\User;
 
 /**
- * Phalcon\UserPlugin\Models\User\UserResetPasswords.
+ * Vtnltd\Models\User\UserResetPasswords.
  */
 class UserResetPasswords extends \Phalcon\Mvc\Model
 {

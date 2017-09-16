@@ -9,7 +9,7 @@ use Vtnltd\Lib\Auth\Auth;
 use Phalcon\Mvc\View;
 use Vtnltd\Lib\Exception\UserPluginException as Exception;
 /**
- * Phalcon\UserPlugin\Plugin\Security.
+ * Vtnltd\Plugin\Security.
  * @todo подождать https://github.com/calinrada/PhalconUserPlugin/pull/33, после этот класс можно убирать
  */
 class Security extends Plugin

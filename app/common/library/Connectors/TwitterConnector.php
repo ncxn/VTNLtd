@@ -1,9 +1,9 @@
 <?php
 
-namespace Vtnltd\Connectors;
+namespace Vtnltd\Lib\Connectors;
 
 /*
- * Phalcon\UserPlugin\Connectors\TwitterConnector
+ * Vtnltd\Connectors\TwitterConnector
  *
  * Original class from https://github.com/themattharris/tmhOAuth
  */

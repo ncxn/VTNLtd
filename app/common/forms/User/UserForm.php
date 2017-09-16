@@ -1,16 +1,16 @@
 <?php
 
-namespace Phalcon\UserPlugin\Forms\User;
+namespace Vtnltd\Forms\User;
 
 use Phalcon\Forms\Form;
 use Phalcon\Forms\Element\Text;
 use Phalcon\Forms\Element\Hidden;
 use Phalcon\Forms\Element\Select;
 use Phalcon\Validation\Validator\Email;
-use Phalcon\UserPlugin\Models\User\UserGroups;
+use Vtnltd\Model\User\UserGroups;
 
 /**
- * Phalcon\UserPlugin\Forms\User\UserForm.
+ * Vtnltd\Forms\User\UserForm.
  */
 class UserForm extends Form
 {

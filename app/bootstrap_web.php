@@ -46,6 +46,7 @@ try {
      */
     $application->registerModules([
         'home' => ['className' => 'Vtnltd\Modules\Home\Module'],
+        'user' => ['className' => 'Vtnltd\Modules\User\Module'],
     ]);
 
     /**

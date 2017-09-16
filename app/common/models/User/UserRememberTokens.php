@@ -3,7 +3,7 @@
 namespace Vtnltd\Model\User;
 
 /**
- * Phalcon\UserPlugin\Models\User\UserRememberTokens.
+ * Vtnltd\Models\User\UserRememberTokens.
  */
 class UserRememberTokens extends \Phalcon\Mvc\Model
 {

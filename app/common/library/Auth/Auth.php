@@ -17,7 +17,7 @@ use Vtnltd\Connectors\TwitterConnector;
 
 
 /**
- * Phalcon\UserPlugin\Auth\Auth.
+ * Vtnltd\Auth\Auth.
  *
  * Manages Authentication/Identity Management
  */
@@ -76,7 +76,7 @@ class Auth extends Component
     /**
      * Login user - normal way.
      *
-     * @param \Phalcon\UserPlugin\Forms\User\LoginForm $form
+     * @param \Vtnltd\Forms\User\LoginForm $form
      *
      * @return \Phalcon\Http\ResponseInterface
      */
@@ -379,7 +379,7 @@ class Auth extends Component
     /**
      * New user.
      *
-     * @return \Phalcon\UserPlugin\Models\User\User
+     * @return \Vtnltd\Models\User\User
      */
     protected function newUser()
     {
@@ -417,7 +417,7 @@ class Auth extends Component
     /**
      * Creates the remember me environment settings the related cookies and generating tokens.
      *
-     * @param Phalcon\UserPlugin\Models\User\User $user
+     * @param Vtnltd\Models\User\User $user
      */
     public function saveSuccessLogin($user)
     {
@@ -472,7 +472,7 @@ class Auth extends Component
     /**
      * Creates the remember me environment settings the related cookies and generating tokens.
      *
-     * @param Phalcon\UserPlugin\Models\User\User $user
+     * @param Vtnltd\Models\User\User $user
      */
     public function createRememberEnviroment($user)
     {
@@ -569,7 +569,7 @@ class Auth extends Component
     /**
      * Checks if the user is banned/inactive/suspended.
      *
-     * @param Phalcon\UserPlugin\Models\User\User $user
+     * @param Vtnltd\Models\User\User $user
      */
     public function checkUserFlags($user)
     {
@@ -665,7 +665,7 @@ class Auth extends Component
     /**
      * Get the entity related to user in the active identity.
      *
-     * @return Phalcon\UserPlugin\Models\User\User
+     * @return Vtnltd\Models\User\User
      */
     public function getUser()
     {

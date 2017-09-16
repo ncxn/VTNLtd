@@ -19,6 +19,7 @@ $loader->registerNamespaces([
  */
 $loader->registerClasses([
     'Vtnltd\Modules\Home\Module'     => APP_PATH . '/modules/home/Module.php',
+    'Vtnltd\Modules\User\Module'     => APP_PATH . '/modules/user/Module.php',
     'Vtnltd\Modules\Cli\Module'      => APP_PATH . '/modules/cli/Module.php'
 ]);
 

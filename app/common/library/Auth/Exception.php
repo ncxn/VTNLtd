@@ -3,7 +3,7 @@
 namespace Vtnltd\Lib\Auth;
 
 /**
- * Phalcon\UserPlugin\Auth\Exception.
+ * Vtnltd\Auth\Exception.
  */
 class Exception extends \Exception
 {

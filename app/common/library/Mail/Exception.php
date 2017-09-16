@@ -1,9 +1,9 @@
 <?php
 
-namespace Vtnltd\Mail;
+namespace Vtnltd\Lib\Mail;
 
 /**
- * Phalcon\UserPlugin\Mail\Exception.
+ * Vtnltd\Mail\Exception.
  */
 class Exception extends \Exception
 {
