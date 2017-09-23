@@ -14,7 +14,7 @@ $di->setShared('router', function () {
     $router = new Router();
 
     $router->setDefaultModule('home');
-
+ 
     return $router;
 });
 

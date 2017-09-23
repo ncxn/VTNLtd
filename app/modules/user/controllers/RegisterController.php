@@ -11,12 +11,16 @@ use Vtnltd\Lib\Auth\Exception as AuthException;
 class RegisterController extends ControllerBase    {
     
     public function indexAction()    {
-        $this->dispatcher->forward(
-            [
+        if($this->auth->isUserSignedIn()==true){
+            $this->response->redirect('user/profile');
+        }else{
+            $this->dispatcher->forward(
+                [
                 "controller" => "Register",
                 "action"     => "Register",
-            ]
-        );
+                ]
+            );
+        }
     }
     
     public function registerAction()

@@ -3,7 +3,7 @@
 namespace Vtnltd\Model\User;
 
 /**
- * Vtnltd\Models\User\UserPasswordChanges.
+ * Vtnltd\Model\User\UserPasswordChanges.
  */
 class UserPasswordChanges extends \Phalcon\Mvc\Model
 {

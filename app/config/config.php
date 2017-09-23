@@ -39,8 +39,8 @@ return new \Phalcon\Config([
         'fromEmail' => 'info@vtnltd.com',
         'smtp' => [
             'server' => 'smtp.gmail.com',
-            'port' => 587,
-            'security' => 'tls',
+            'port' => '465',
+            'security' => 'ssl',
             'username' => 'ncxn.pp@gmail.com',
             'password' => 'mmttmhh30081982'
         ]

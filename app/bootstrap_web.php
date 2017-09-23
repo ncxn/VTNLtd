@@ -53,7 +53,11 @@ try {
      * Include routes
      */
     require APP_PATH . '/config/routes.php';
-
+        /**
+     * Include composer autoloader
+     */
+    require BASE_PATH . '/vendor/autoload.php';
+    
     echo str_replace(["\n","\r","\t"], '', $application->handle()->getContent());
 
 } catch (\Exception $e) {

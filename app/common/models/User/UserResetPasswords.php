@@ -224,21 +224,19 @@ class UserResetPasswords extends \Phalcon\Mvc\Model
         $this->reset = 0;
     }
 
+
     /**
-     * Send an e-mail to users allowing him/her to reset his/her password.
+     * Send an e-mail to users allowing him/her to reset his/her password
      */
     public function afterCreate()
     {
-        $this->getDI()->getMail()->send(
-            array(
-                $this->user->getEmail() => $this->user->getName() ? $this->user->getName() : 'Customer',
-            ),
-            'Reset your password',
-            'reset',
-            array(
-                'resetUrl' => '/user/resetPassword/'.$this->getCode().'/'.$this->user->getEmail(),
-            )
-        );
+        $this->getDI()
+            ->getMail()
+            ->send([
+                $this->user->email => $this->user->name
+            ], "Reset your password", 'reset', [
+                'resetUrl' => '/user/resetPwd/index/' . $this->code . '/' . $this->user->email
+            ]);
     }
 
     /**
@@ -247,6 +245,6 @@ class UserResetPasswords extends \Phalcon\Mvc\Model
     public function beforeValidationOnUpdate()
     {
         //Timestamp the confirmaton
-        $this->updated_at = date('Y-m-d H:i:s');
+        $this->modified_at = date('Y-m-d H:i:s');
     }
 }

@@ -3,105 +3,129 @@
 namespace Vtnltd\Lib\Mail;
 
 use Phalcon\Mvc\User\Component;
-use Swift_Message as Message;
-use Swift_SmtpTransport as Smtp;
 use Phalcon\Mvc\View;
 /**
- * Vokuro\Mail\Mail
+ * Phalcon\UserPlugin\Mail\Mail.
+ *
  * Sends e-mails based on pre-defined templates
  */
 class Mail extends Component
 {
-    protected $transport;
-    protected $amazonSes;
+    protected $_transport;
+    protected $_directSmtp = true;
+    protected $attachments = array();
+    protected $images = array();
+    protected $mailer;
     /**
-     * Send a raw e-mail via AmazonSES
+     * Adds a new file to attach.
      *
-     * @param string $raw
-     * @return bool
+     * @param unknown $file
      */
-    private function amazonSESSend($raw)
+    public function addAttachment($name, $content, $type = 'text/plain')
     {
-        if ($this->amazonSes == null) {
-            $this->amazonSes = new \AmazonSES(
-                [
-                    'key'    => $this->config->amazon->AWSAccessKeyId,
-                    'secret' => $this->config->amazon->AWSSecretKey
-                ]
-            );
-            @$this->amazonSes->disable_ssl_verification();
-        }
-        $response = $this->amazonSes->send_raw_email(
-            [
-                'Data' => base64_encode($raw)
-            ],
-            [
-                'curlopts' => [
-                    CURLOPT_SSL_VERIFYHOST => 0,
-                    CURLOPT_SSL_VERIFYPEER => 0
-                ]
-            ]
+        $this->attachments[] = array(
+            'name' => $name,
+            'content' => $content,
+            'type' => $type,
         );
-        if (!$response->isOK()) {
-            $this->logger->error('Error sending email from AWS SES: ' . $response->body->asXML());
-        }
-        return true;
     }
     /**
-     * Applies a template to be used in the e-mail
+     * Applies a template to be used in the e-mail.
      *
      * @param string $name
-     * @param array $params
-     * @return string
+     * @param array  $params
      */
-    public function getTemplate($name, $params)
+    public function getTemplate($message, $name, $params)
     {
-        $parameters = array_merge([
-            'publicUrl' => $this->config->application->publicUrl
-        ], $params);
-        return $this->view->getRender('emailTemplates', $name, $parameters, function ($view) {
+        $parameters = array_merge(array(
+            'publicUrl' => $this->config->application->publicUrl,
+        ), $params);
+        foreach ($this->images as $name => $image_path) {
+            $parameters[$name] = $message->embed(\Swift_Image::fromPath($image_path));
+        }
+        return $this->view->getRender('email', $name, $parameters, function ($view) {
             $view->setRenderLevel(View::LEVEL_LAYOUT);
         });
-        return $view->getContent();
     }
     /**
-     * Sends e-mails via AmazonSES based on predefined templates
+     * Inserts images without using getTemplate.
      *
-     * @param array $to
-     * @param string $subject
-     * @param string $name
-     * @param array $params
-     * @return bool|int
-     * @throws Exception
+     * @param string $message
+     * @param string $content
+     *
+     * @return mixed
      */
-    public function send($to, $subject, $name, $params)
+    public function insertImages($message, $content)
     {
-        // Settings
-        $mailSettings = $this->config->mail;
-        $template = $this->getTemplate($name, $params);
-        // Create the message
-        $message = Message::newInstance()
-            ->setSubject($subject)
-            ->setTo($to)
-            ->setFrom([
-                $mailSettings->fromEmail => $mailSettings->fromName
-            ])
-            ->setBody($template, 'text/html');
-        if (isset($mailSettings) && isset($mailSettings->smtp)) {
-            if (!$this->transport) {
-                $this->transport = Smtp::newInstance(
-                    $mailSettings->smtp->server,
-                    $mailSettings->smtp->port,
-                    $mailSettings->smtp->security
-                )
-                ->setUsername($mailSettings->smtp->username)
-                ->setPassword($mailSettings->smtp->password);
-            }
-            // Create the Mailer using your created Transport
-            $mailer = \Swift_Mailer::newInstance($this->transport);
-            return $mailer->send($message);
-        } else {
-            return $this->amazonSESSend($message->toString());
+        foreach ($this->images as $name => $image_path) {
+            $image_embed = $message->embed(\Swift_Image::fromPath($image_path));
+            $content = str_replace(rawurlencode('{{ '.$name.' }}'), $image_embed, $content);
         }
+        return $content;
+    }
+    /**
+     * Get the instance of \Swift_Mailer
+     *
+     * @return \Swift_Mailer
+     */
+    public function getMailer()
+    {
+        return $this->mailer;
+    }
+    /**
+     * Sends e-mails based on predefined templates. If the $body param
+     * has value, the template will be ignored.
+     *
+     * @param array  $to
+     * @param string $subject
+     * @param string $name    Template name
+     * @param array  $params
+     * @param array  $body
+     */
+    public function send($to, $subject, $name = null, $params = null, $body = null)
+    {
+        // Create the message
+        $message = \Swift_Message::newInstance();
+        //Settings
+        $mailSettings = $this->config->mail;
+        //Images
+        if (isset($params['images'])) {
+            $this->images = $params['images'];
+        }
+        if (null === $body) {
+            $template = $this->getTemplate($message, $name, $params);
+        } else {
+            $template = $this->insertImages($message, $body);
+        }
+         // Setting message params
+        $message->setSubject($subject)
+            ->setTo($to)
+            ->setFrom(array(
+                $mailSettings->fromEmail => $mailSettings->fromName,
+            ))
+            ->setBody($template, 'text/html');
+        // Check attachments to add
+        foreach ($this->attachments as $file) {
+            $message->attach(\Swift_Attachment::newInstance()
+                ->setBody($file['content'])
+                ->setFilename($file['name'])
+                ->setContentType($file['type'])
+            );
+        }
+        if (!$this->_transport) {
+            $this->_transport = \Swift_SmtpTransport::newInstance(
+                $mailSettings->smtp->server,
+                $mailSettings->smtp->port,
+                $mailSettings->smtp->security
+            )
+            ->setUsername($mailSettings->smtp->username)
+            ->setPassword($mailSettings->smtp->password);
+        }
+        // Create the Mailer using your created Transport
+        $this->mailer = \Swift_Mailer::newInstance($this->_transport);
+        $result = $this->mailer->send($message);
+        $this->mailer->getTransport()->stop();
+        $this->attachments = array();
+        return $result;
     }
 }

@@ -1,6 +1,13 @@
 <?php
 
+/**
+ * Main router 
+ * */
+ 
+$router = new Phalcon\Mvc\Router(FALSE);
+
 $router = $di->get("router");
+
 foreach ($application->getModules() as $key => $module) {
     $namespace = sprintf("Vtnltd\Modules\%s\Controllers", ucfirst($key));
     $router->add('/'.$key.'/:params', array(
@@ -24,10 +31,15 @@ foreach ($application->getModules() as $key => $module) {
             'action' => 2,
             'params' => 3
     ));
-}
 
-$modroutes = glob(APP_PATH."/*/config/routes.php");
-foreach($modroutes as $route)
-{
-    include_once $route;
+    $moduleRoute = APP_PATH . "/modules/".$key."/router.php";
+    if (file_exists($moduleRoute)) {
+        require $moduleRoute;
+       /*
+        * dump file for test
+        * echo $moduleRoute;
+        */
+    }
+    $router->removeExtraSlashes(true);
 }
+return $router;

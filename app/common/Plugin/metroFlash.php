@@ -1,7 +1,7 @@
 <?php
 namespace Vtnltd\Plugin;
-
-class MetroFlash 
+use Phalcon\Flash\Session as flash;
+class MetroFlash extends Flash
 {
      /**
      * Adds error message to stack
