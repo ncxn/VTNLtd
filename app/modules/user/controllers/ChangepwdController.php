@@ -10,8 +10,6 @@ class ChangePwdController extends ControllerBase    {
      */
     public function indexAction()
     {
-        $debug = new \Phalcon\Debug();
-        $debug->listen();
         $form = new ChangePasswordForm();
         $user = $this->auth->getUser();
         
@@ -47,6 +45,5 @@ class ChangePwdController extends ControllerBase    {
             }
         }
         $this->view->form = $form;
-        $this->view->pick('/ChangePwd');
     }
 }

@@ -16,9 +16,20 @@ class ProfileController extends ControllerBase
     public function indexAction()    {
         
         $identity = $this->auth->getIdentity();
-
-        $profile = UserProfile::findFirstByUserId($identity['id']);
         $user = User::findFirstByEmail($identity['email']);
+        
+        if (!$user){
+            $this->metroFlash->error("You must login to access this page");
+            $this->dispatcher->forward(
+            [
+                "controller" => "Login",
+                "action"     => "Login",
+            ]
+            );
+        }else{
+            
+        $profile = UserProfile::findFirstByUserId($identity['id']);
+        
         if (!$profile) { // Create a profile record if does not exists
             $profile = new UserProfile();
             $profile->setUserId($identity['id']);
@@ -82,9 +93,8 @@ class ProfileController extends ControllerBase
         $this->view->setVar('profile', $profile);
         $this->view->setVar('user', $user);
         $this->view->form = $form;
-        $this->view->pick('/profile');
     }
-
+    }
     /**
      * The basic account form
      */

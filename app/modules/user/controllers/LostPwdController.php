@@ -53,7 +53,6 @@ class lostPwdController extends ControllerBase    {
             }
         }
         $this->view->form = $form;
-        $this->view->pick('/lostPwd');
     }
 
 }

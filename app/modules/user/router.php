@@ -1,14 +1,19 @@
 <?php
+$router = new \Phalcon\Mvc\Router(false);
+$router->add(
+     '/user/{id}',
+     array(
+         'controller' => 'profile',
+         'action'     => 'index',
+     )
+ );
 
-$router = new Phalcon\Mvc\Router(False);
+$router->add(
+     '/user/profile/{id}',
+     array(
+        'controller' => 'profile',
+        'action'     => 'abc'
+     )
+ );
 
-$router->add('user/confirm/{code}/{email}', [
-    'controller'    => 'confirmEmail',
-    'action'        => 'confirmEmail'
-]);
-$router->add('/user/resetPwd/{code}/{email}', [
-    'module'        => 'user',
-    'controller'    => 'resetPwd',
-    'action'        => 'index',
-]);
-return $router;
+ return $router;

@@ -3,7 +3,7 @@
 namespace Vtnltd\Lib\Auth;
 
 /**
- * Vtnltd\Auth\Exception.
+ * Vtnltd\Lib\Auth\Exception.
  */
 class Exception extends \Exception
 {

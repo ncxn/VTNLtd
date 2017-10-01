@@ -53,7 +53,8 @@ class RegisterForm extends Form
         $password = new Password('password');
 
         $password->setLabel('Password');
-
+        $password->setAttribute('autocomplete', 'off');
+        $password->setDefault('');
         $password->addValidators(array(
             new PresenceOf(array(
                 'message' => 'The password is required',

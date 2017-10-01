@@ -1,16 +1,11 @@
 <?php
 namespace Vtnltd\Modules\User\Controllers;
 
-
-use Vtnltd\Model\User\User;
+use Vtnltd\Lib\Auth\Exception as AuthException;
 
 use Vtnltd\Forms\User\LoginForm;
 
-use Vtnltd\Lib\Auth\Exception as AuthException;
-use Vtnltd\Lib\Connectors\FacebookConnector;
-
-//use Phalcon\Mvc\View;
-//use Phalcon\Tag;
+//use Vtnltd\Lib\Connectors\FacebookConnector;
 
 class LoginController extends ControllerBase
 {
@@ -53,6 +48,5 @@ class LoginController extends ControllerBase
             $this->metroFlash->error($e->getMessage());
         }
         $this->view->form = $form;
-        $this->view->pick('/login');
     }
 }
