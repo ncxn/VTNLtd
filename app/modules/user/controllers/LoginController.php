@@ -1,9 +1,8 @@
 <?php
 namespace Vtnltd\Modules\User\Controllers;
 
-use Vtnltd\Lib\Auth\Exception as AuthException;
-
 use Vtnltd\Forms\User\LoginForm;
+use Vtnltd\Lib\Auth\Exception as AuthException;
 
 //use Vtnltd\Lib\Connectors\FacebookConnector;
 
@@ -33,7 +32,7 @@ class LoginController extends ControllerBase
             } else {
                 if ($form->isValid($this->request->getPost()) == false) {
                     foreach ($form->getMessages() as $message) {
-                        $this->metroFlash->error($message);
+                        $this->metroFlash->warning($message);
                     }
                 } else {
                     $this->auth->check([

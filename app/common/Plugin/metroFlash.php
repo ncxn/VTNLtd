@@ -1,6 +1,7 @@
 <?php
 namespace Vtnltd\Plugin;
 use Phalcon\Flash\Session as flash;
+
 class MetroFlash extends Flash
 {
      /**
@@ -11,12 +12,26 @@ class MetroFlash extends Flash
     public function error($text)
     {
       echo "<script type='text/javascript'>";
-      echo "$.Notify({
-             caption: 'Error',
-             content: '$text',
-             type: 'alert',
-             keepOpen: true,
-             icon:\"<span class='mif-warning'></span>\"});";
+        echo "Metro.dialog.create({
+        title: \"<span class='mif-cancel mif-2x'></span>\",
+        content: \"$text\",
+        clsDialog: \"bg-dark\",
+        clsTitle: \"fg-red\",
+        clsContent: \"fg-white\",
+        clsDefaultAction: \"alert\",
+        onShow: function(el){
+            el.addClass(\"ani-swoopInTop\");
+            setTimeout(function(){
+                el.removeClass(\"ani-swoopInTop\");
+            }, 500);
+        },
+        onHide: function(el){
+            el.addClass(\"ani-swoopOutTop\");
+            setTimeout(function(){
+                el.removeClass(\"ani-swoopOutTop\");
+            }, 500);
+        }
+    });";
       echo "</script>";
     }    
 
@@ -59,12 +74,27 @@ class MetroFlash extends Flash
      */
     public function warning($text)
     {
-     echo "<script type='text/javascript'>";
-      echo "$.Notify({
-             caption: 'Warning:',
-             content: '$text',
-             type: 'warning',
-             icon:\"<span class='mif-warning'></span>\"});";
-      echo "</script>";
+        echo "<script type='text/javascript'>";
+        echo "Metro.dialog.create({
+        title: \"<span class='mif-warning mif-2x'></span>\",
+        content: \"$text\",
+        clsDialog: \"bg-dark\",
+        clsTitle: \"fg-red\",
+        clsContent: \"fg-white\",
+        clsDefaultAction: \"alert\",
+        onShow: function(el){
+            el.addClass(\"ani-swoopInTop\");
+            setTimeout(function(){
+                el.removeClass(\"ani-swoopInTop\");
+            }, 500);
+        },
+        onHide: function(el){
+            el.addClass(\"ani-swoopOutTop\");
+            setTimeout(function(){
+                el.removeClass(\"ani-swoopOutTop\");
+            }, 500);
+        }
+    });";
+        echo "</script>";
     }
 }
