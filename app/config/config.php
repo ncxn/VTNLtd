@@ -33,7 +33,7 @@ return new \Phalcon\Config([
 
     'printNewLine' => true,
     
-    'useMail'=> true,
+    'useMail'=> false,
     'mail' => [
         'fromName' => 'VTNCo.,Ltd',
         'fromEmail' => 'info@vtnltd.com',

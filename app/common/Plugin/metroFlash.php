@@ -7,7 +7,7 @@ class MetroFlash extends Flash
      /**
      * Adds error message to stack
      * @param string $text
-     * @return JS notify message
+     * @return JS notify message by MetroUI Modal
      */
     public function error($text)
     {
