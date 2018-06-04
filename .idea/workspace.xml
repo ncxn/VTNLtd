@@ -1,37 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="96b1206d-ccf3-4fff-bf8d-34897faf48ff" name="Default" comment="Add metroUI v4.0">
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vtnltd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vtnltd.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/common/Plugin/metroFlash.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/common/Plugin/metroFlash.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/modules/home/views/index.volt" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/home/views/index.volt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/modules/user/controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/user/controllers/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/modules/user/views/ChangePwd.volt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/modules/user/views/index.volt" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/user/views/index.volt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/modules/user/views/login.volt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/modules/user/views/login/login.volt" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/user/views/login/login.volt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/modules/user/views/lostPwd.volt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/modules/user/views/profile.volt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/modules/user/views/register.volt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/volt/modules_home_views_index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/volt/modules_home_views_index_index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/volt/modules_user_views_Login_Login.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/volt/modules_user_views_Register_Register.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/volt/modules_user_views__ChangePwd.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/volt/modules_user_views__login.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/volt/modules_user_views__lostPwd.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/volt/modules_user_views__profile.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/volt/modules_user_views__register.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/volt/modules_user_views_changePwd_index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/volt/modules_user_views_email_reset.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/volt/modules_user_views_index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/volt/modules_user_views_index_index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/volt/modules_user_views_lostPwd_forgotPassword.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/volt/modules_user_views_profile_index.php" beforeDir="false" />
-    </list>
+    <list default="true" id="96b1206d-ccf3-4fff-bf8d-34897faf48ff" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +17,7 @@
       <file leaf-file-name="login.volt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/modules/user/views/login/login.volt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
+            <state relative-caret-position="-1292">
               <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
             </state>
           </provider>
@@ -67,9 +37,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
               <caret line="34" column="50" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="50" />
-              <folding>
-                <element signature="e#50#82#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -230,12 +197,20 @@
       <workItem from="1505548349502" duration="2051000" />
       <workItem from="1506088473610" duration="11000" />
       <workItem from="1527844070993" duration="5592000" />
-      <workItem from="1527901386796" duration="9804000" />
+      <workItem from="1527901386796" duration="10416000" />
     </task>
+    <task id="LOCAL-00001" summary="Add metroUI v4.0">
+      <created>1527911506611</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1527911506611</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18094000" />
+    <option name="totallyTimeSpent" value="18706000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -264,6 +239,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -410,15 +388,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="34" column="50" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="50" />
-          <folding>
-            <element signature="e#50#82#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/user/views/login/login.volt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
+        <state relative-caret-position="-1292">
           <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
         </state>
       </provider>
